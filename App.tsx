@@ -8,7 +8,11 @@ const windowHeight = Dimensions.get('window').height;
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <WebView style={styles.webview} source={{uri: 'https://naver.com'}} />
+      <WebView
+        whiteList={['*']}
+        style={styles.webview}
+        source={{uri: 'http://localhost:3000'}}
+      />
     </SafeAreaView>
   );
 }
