@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform, SafeAreaView, useWindowDimensions} from 'react-native';
+import {Platform, useWindowDimensions} from 'react-native';
 import WebView from 'react-native-webview';
 import {util} from '../../../util';
 import {InjectedJavaScript} from '../../../util/message';
@@ -29,17 +29,16 @@ export default function CommonWebview(props: Props) {
   };
 
   return (
-    <SafeAreaView>
-      <WebView
-        source={{uri}}
-        onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
-        javaScriptEnabled
-        domStorageEnabled
-        allowsBackForwardNavigationGestures
-        injectedJavaScript={util.message.getInjectedJavaScript(
-          injectedJavaScriptProps,
-        )}
-      />
-    </SafeAreaView>
+    <WebView
+      originWhitelist={['*']}
+      source={{uri}}
+      onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
+      javaScriptEnabled
+      domStorageEnabled
+      allowsBackForwardNavigationGestures
+      injectedJavaScript={util.message.getInjectedJavaScript(
+        injectedJavaScriptProps,
+      )}
+    />
   );
 }
