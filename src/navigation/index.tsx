@@ -5,7 +5,7 @@ import MainScreen from '../screens/main';
 
 export const Stack = createNativeStackNavigator();
 
-export default function MyStack() {
+export default function MainStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="main">
